@@ -1,0 +1,41 @@
+# Maintainer: Nathan Chancellor <nathan@kernel.org>
+pkgname=cvise
+pkgver=2.6.0
+pkgrel=1
+pkgdesc="Super-parallel Python port of the C-Reduce"
+arch=('x86_64')
+url="https://github.com/marxin/cvise"
+license=('custom:University of Illinois Open Source License')
+depends=('clang' 'llvm-libs' 'python' 'python-chardet' 'python-pebble' 'python-psutil' 'unifdef')
+makedepends=('cmake' 'flex' 'llvm')
+checkdepends=('python-pytest' 'python-pytest-flake8')
+optdepends=('colordiff: Show diffs in color')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/marxin/$pkgname/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('770b88851901c8c7ce14c47809ba9989e99de35c564917cf2f686a7e48484b75')
+
+build() {
+  cd "$pkgname-$pkgver"
+
+  cmake \
+    -B build \
+    -DCMAKE_BUILD_TYPE=None \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib/$pkgname \
+    -DCMAKE_PREFIX_PATH=/usr \
+    -Wno-dev
+
+  make -C build
+}
+
+check() {
+  cd "$pkgname-$pkgver"
+
+  make -C build test
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+
+  make -C build DESTDIR="$pkgdir/" install
+  install -Dm644 COPYING "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}

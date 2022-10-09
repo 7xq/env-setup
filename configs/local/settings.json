@@ -1,0 +1,127 @@
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{00000000-0000-0000-0000-000000000000}",
+
+    // I rely on pasting with new lines so do not warn about it.
+    "multiLinePasteWarning": false,
+
+    "profiles":
+    {
+        "defaults":
+        {
+            // https://github.com/be5invis/Iosevka
+            "bellStyle": "visual",
+            "fontFace": "Iosevka Term SS08",
+            "fontSize": 9
+        },
+        "list":
+        [
+            {
+                "guid": "{00000000-0000-0000-0000-000000000000}",
+                "hidden": false,
+                "name": "foobar",
+                "source": "Windows.Terminal.Wsl",
+                "colorScheme": "snazzy",
+                "closeOnExit": "always",
+                "startingDirectory": "\\\\wsl$\\Arch\\home\\nathan",
+                "icon": "ms-appdata:///roaming/archlinux.ico"
+            }
+        ]
+    },
+
+    "schemes":
+    [
+        {
+            "name": "lucario",
+            "background": "#2b3e50",
+            "foreground": "#f8f8f2",
+            "cursorColor": "#e3bf21",
+            "selectionBackground": "#97979b",
+            "black": "#4f4f4f",
+            "red": "#ff6c60",
+            "green": "#fbb036",
+            "yellow": "#ffffb6",
+            "blue": "#5796ed",
+            "purple": "#ff73fd",
+            "cyan": "#8ee478",
+            "white": "#eeeeee",
+            "brightBlack": "#4f4f4f",
+            "brightRed": "#fa6960",
+            "brightGreen": "#fbb036",
+            "brightYellow": "#feffb9",
+            "brightBlue": "#6b9fed",
+            "brightPurple": "#fc6ffa",
+            "brightCyan": "#8ee478",
+            "brightWhite": "#ffffff"
+        },
+        {
+            "name": "nord",
+            "background": "#2E3440",
+            "foreground": "#D8DEE9",
+            "cursorColor": "#D8DEE9",
+            "selectionBackground": "#434c5e",
+            "black": "#3B4252",
+            "red": "#BF616A",
+            "green": "#A3BE8C",
+            "yellow": "#EBCB8B",
+            "blue": "#81A1C1",
+            "purple": "#B48EAD",
+            "cyan": "#88C0D0",
+            "white": "#E5E9F0",
+            "brightBlack": "#4C566A",
+            "brightRed": "#BF616A",
+            "brightGreen": "#A3BE8C",
+            "brightYellow": "#EBCB8B",
+            "brightBlue": "#81A1C1",
+            "brightPurple": "#B48EAD",
+            "brightCyan": "#88C0D0",
+            "brightWhite": "#ECEFF4"
+        },
+        {
+            "name": "snazzy",
+            "background": "#282a36",
+            "foreground": "#eff0eb",
+            "cursorColor": "#97979b",
+            "selectionBackground": "#97979b",
+            "black": "#282a36",
+            "red": "#ff5c57",
+            "green": "#5af78e",
+            "yellow": "#f3f99d",
+            "blue": "#57c7ff",
+            "purple": "#ff6ac1",
+            "cyan": "#9aedfe",
+            "white": "#f1f1f0",
+            "brightBlack": "#686868",
+            "brightRed": "#ff5c57",
+            "brightGreen": "#5af78e",
+            "brightYellow": "#f3f99d",
+            "brightBlue": "#57c7ff",
+            "brightPurple": "#ff6ac1",
+            "brightCyan": "#9aedfe",
+            "brightWhite": "#eff0eb"
+        }
+    ],
+
+    "keybindings":
+    [
+        // Unbind Ctrl-^ so that force disconnecting a mosh session works
+        { "command" : "unbound", "keys" : "ctrl+shift+6" },
+
+        // Focus mode
+        { "command": "toggleFocusMode", "keys": "shift+f11" },
+
+        // Unbind keys involving alt so that fish partial complete works
+        { "command": "unbound", "keys": "alt+shift+-" },
+        { "command": "unbound", "keys": "alt+shift+plus" },
+        { "command": "unbound", "keys": "alt+down" },
+        { "command": "unbound", "keys": "alt+left" },
+        { "command": "unbound", "keys": "alt+right" },
+        { "command": "unbound", "keys": "alt+up" },
+        { "command": "unbound", "keys": "alt+shift+down" },
+        { "command": "unbound", "keys": "alt+shift+left" },
+        { "command": "unbound", "keys": "alt+shift+right" },
+        { "command": "unbound", "keys": "alt+shift+up" }
+    ]
+}
+
