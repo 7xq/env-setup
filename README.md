@@ -1,4 +1,4 @@
-# env
+# Environment Setup Scripts
 
 This repository contains my shell environment scripts and configurations. The layout is as follows:
 
